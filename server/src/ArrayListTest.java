@@ -22,6 +22,7 @@ public class ArrayListTest {
 
             String data = reader.readLine();
 
+            //while (data == null) {
                 try {
                     if (data.equals("search")) {
                         BufferedReader r = new BufferedReader(new FileReader("A.txt"));
@@ -44,7 +45,7 @@ public class ArrayListTest {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-
+            //}
 
 
             writer.close();
