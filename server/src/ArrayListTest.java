@@ -55,8 +55,6 @@ public class ArrayListTest {
                     String data2 = reader.readLine().trim();
                     String data3 = reader.readLine().trim();
 
-                    System.out.println(data1 + " " + data2 + " " + data3 + "\n");
-
                     addReader.write(data1 + " " + data2 + " " + data3 + "\n");
 
                     addReader.close();
@@ -64,6 +62,37 @@ public class ArrayListTest {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
+
+            try {
+                if (data.equals("update")){
+                    BufferedReader r = new BufferedReader(new FileReader("A.txt"));
+                    Scanner myReader = new Scanner(r);
+
+                    String data1 = reader.readLine().trim();
+                    String data2 = reader.readLine().trim();
+                    String data3 = reader.readLine().trim();
+                    String data4 = reader.readLine().trim();
+
+                    while (myReader.hasNextLine()) {
+                        String s = myReader.nextLine();
+                        String str[] = s.split(" ");
+
+                        if (data2.equals(str[1].trim())) {
+                            data1 = str[0];
+                            data2 = str[1];
+                            data1 = str[2];
+                            data2 = str[3];
+                        }
+                    }
+                    myReader.close();
+                    r.close();
+                }
+
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
             writer.close();
             reader.close();

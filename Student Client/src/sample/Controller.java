@@ -105,86 +105,35 @@ public class Controller {
 
     @FXML
     void UpdateFunction() {
-
-    }
-}
-/*
-    @FXML
-    void HistoryFunction() {
-        String a = searchtTF.getText();
+        String name1 = nameTF.getText().trim();
+        String id1 = idTF.getText().trim();
+        String balance1 = balanceTF.getText().trim();
+        String phoneNum1 = phonenumTF.getText().trim();
 
         try {
-            if (a == "a"){
-                writer.write("a\n");
+            writer.write("update\n");
 
-                writer.flush();
-
-                String res = reader.readLine();
-                resultTA.setText(res);
-                writer.flush();
-            }
-
-            else if (a == "b"){
-                writer.write("a\n");
-
-                writer.flush();
-
-                String res = reader.readLine();
-                resultTA.setText(res);
-            }
-
-            else if (a == "c"){
-                writer.write("a\n");
-
-                writer.flush();
-
-                String res = reader.readLine();
-                resultTA.setText(res);
-            }
-
-            */
-/*//*
-/Double.parseDouble(a);
-
-            writer.write("a\n");
-
-            writer.write(a);
+            writer.write(name1);
             writer.newLine();
-
             writer.flush();
 
-            String res = reader.readLine();
-            resultTA.setText(res);*//*
+            writer.write(id1);
+            writer.newLine();
+            writer.flush();
 
+            writer.write(balance1);
+            writer.newLine();
+            writer.flush();
 
-        } catch (NumberFormatException e) {
+            writer.write(phoneNum1);
+            writer.newLine();
+            writer.flush();
+
+        } catch (IOException e) {
             e.printStackTrace();
-        } catch (IOException e2) {
+        }
+        catch (NullPointerException e2){
             e2.printStackTrace();
         }
     }
 }
-
-  */
-/*  @FXML
-    void HistoryFunction() {
-        try {
-
-            writer.write("a\n");
-            writer.flush();
-
-            String line;
-            resultTA.setText(" ");
-            while ((line = reader.readLine()) != null) {
-                if (line.equals("<eof>")) break;
-                resultTA.appendText(line + "\n");
-            }
-
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
-    }*/
-/*
- */
