@@ -42,11 +42,28 @@ public class ArrayListTest {
                         myReader.close();
                         r.close();
                     }
-                } catch (Exception e) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             //}
 
+            try {
+                if (data.equals("add")) {
+                    FileWriter addReader=new FileWriter("A.txt",true);
+
+                    String data1 = reader.readLine().trim();
+                    String data2 = reader.readLine().trim();
+                    String data3 = reader.readLine().trim();
+
+                    System.out.println(data1 + " " + data2 + " " + data3 + "\n");
+
+                    addReader.write(data1 + " " + data2 + " " + data3 + "\n");
+
+                    addReader.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             writer.close();
             reader.close();

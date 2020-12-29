@@ -71,7 +71,36 @@ public class Controller {
 
     @FXML
     void AddFunction() {
+        String name = nameTF.getText().trim();
+        String id = idTF.getText().trim();
+        String balance = balanceTF.getText().trim();
+        String phoneNum = phonenumTF.getText().trim();
 
+        try {
+            writer.write("add\n");
+
+            writer.write(name);
+            writer.newLine();
+            writer.flush();
+
+            writer.write(id);
+            writer.newLine();
+            writer.flush();
+
+            writer.write(balance);
+            writer.newLine();
+            writer.flush();
+
+            writer.write(phoneNum);
+            writer.newLine();
+            writer.flush();
+
+        } catch (IOException e) {
+        e.printStackTrace();
+    }
+        catch (NullPointerException e2){
+        e2.printStackTrace();
+    }
     }
 
     @FXML
