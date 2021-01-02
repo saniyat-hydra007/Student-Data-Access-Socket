@@ -1,17 +1,16 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
 
 public class ArrayListTest {
-    public static void main(String[] args) {
-
-
+    public static void main (String[] args) {
 
         try {
-            ServerSocket serverSocket = new ServerSocket(5000);
+            ServerSocket serverSocket = new ServerSocket(4000);
             Socket socket = serverSocket.accept();
 
             OutputStreamWriter o = new OutputStreamWriter(socket.getOutputStream());
@@ -20,52 +19,57 @@ public class ArrayListTest {
             InputStreamReader isr = new InputStreamReader(socket.getInputStream());
             BufferedReader reader = new BufferedReader(isr);
 
-            String data = reader.readLine();
+            String data = reader.readLine().trim();
 
-            //while (data == null) {
-                try {
-                    if (data.equals("search")) {
-                        BufferedReader r = new BufferedReader(new FileReader("A.txt"));
-                        Scanner myReader = new Scanner(r);
+            while (data != null) {
+            try {
+                if (data.equals("search")) {
+                    BufferedReader r = new BufferedReader(new FileReader("A.txt"));
+                    Scanner myReader = new Scanner(r);
 
-                        String a = reader.readLine().trim();
+                    String a = reader.readLine();
 
-                        while (myReader.hasNextLine()) {
-                            String s = myReader.nextLine();
-                            String str[] = s.split(" ");
+                 while (myReader.hasNextLine()) {
+                        String s = myReader.nextLine().trim();
+                        String str[] = s.split(" ");
 
-                            if (a.equals(str[1].trim())) {
-                                writer.write(s);
-                                writer.flush();
-                            }
+                        if (a.equals(str[1])) {
+                            writer.write(s);
+                            writer.flush();
                         }
-                        myReader.close();
-                        r.close();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    myReader.close();
+                    r.close();
                 }
-            //}
+            }catch (ArrayIndexOutOfBoundsException e2){
+                e2.printStackTrace();
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+            }
 
+            //while (data != null) {
             try {
                 if (data.equals("add")) {
-                    FileWriter addReader=new FileWriter("A.txt",true);
+                    FileWriter addReader = new FileWriter("A.txt", true);
 
                     String data1 = reader.readLine().trim();
                     String data2 = reader.readLine().trim();
                     String data3 = reader.readLine().trim();
+                    String data4 = reader.readLine().trim();
 
-                    addReader.write(data1 + " " + data2 + " " + data3 + "\n");
+                    addReader.write(data1 + " " + data2 + " " + data3 + " " + data4 + "\n");
 
                     addReader.close();
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
+            //}
 
             try {
-                if (data.equals("update")){
+                if (data.equals("update")) {
                     BufferedReader r = new BufferedReader(new FileReader("A.txt"));
                     Scanner myReader = new Scanner(r);
 
@@ -74,24 +78,23 @@ public class ArrayListTest {
                     String data3 = reader.readLine().trim();
                     String data4 = reader.readLine().trim();
 
+
                     while (myReader.hasNextLine()) {
                         String s = myReader.nextLine();
                         String str[] = s.split(" ");
 
-                        if (data2.equals(str[1].trim())) {
-                            data1 = str[0];
-                            data2 = str[1];
-                            data1 = str[2];
-                            data2 = str[3];
+                        if (data2.equals(str[1])) {
+                            System.out.println(s);
                         }
                     }
                     myReader.close();
                     r.close();
                 }
 
-            }catch (IOException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+
 
 
             writer.close();

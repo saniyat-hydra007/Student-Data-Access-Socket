@@ -33,7 +33,7 @@ public class Controller {
 
     public Controller() {
         try {
-            Socket socket = new Socket("127.0.0.1", 5000);
+            Socket socket = new Socket("127.0.0.1", 4000);
 
             OutputStreamWriter o = new OutputStreamWriter(socket.getOutputStream());
             writer = new BufferedWriter(o);
@@ -67,6 +67,7 @@ public class Controller {
         catch (NullPointerException e2){
             e2.printStackTrace();
         }
+        searchTF.clear();
     }
 
     @FXML
@@ -101,6 +102,10 @@ public class Controller {
         catch (NullPointerException e2){
         e2.printStackTrace();
     }
+        nameTF.clear();
+        idTF.clear();
+        balanceTF.clear();
+        phonenumTF.clear();
     }
 
     @FXML
@@ -135,5 +140,14 @@ public class Controller {
         catch (NullPointerException e2){
             e2.printStackTrace();
         }
+        nameTF.clear();
+        idTF.clear();
+        balanceTF.clear();
+        phonenumTF.clear();
+    }
+
+    @FXML
+    void RemoveFunction(){
+
     }
 }

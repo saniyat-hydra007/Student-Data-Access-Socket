@@ -33,7 +33,7 @@
                   <Font size="24.0" />
                </font>
             </TextArea>
-            <Button layoutX="172.0" layoutY="398.0" mnemonicParsing="false" onAction="#AddFunction" prefHeight="44.0" prefWidth="79.0" text="ADD">
+            <Button layoutX="201.0" layoutY="398.0" mnemonicParsing="false" onAction="#AddFunction" prefHeight="44.0" prefWidth="79.0" text="ADD">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
@@ -47,7 +47,12 @@
             <Label layoutX="21.0" layoutY="252.0" prefHeight="34.0" prefWidth="70.0" text="ID" />
             <Label layoutX="21.0" layoutY="300.0" prefHeight="34.0" prefWidth="70.0" text="Balance" />
             <Label layoutX="21.0" layoutY="349.0" prefHeight="34.0" prefWidth="70.0" text="Phone Num" />
-            <Button layoutX="268.0" layoutY="398.0" mnemonicParsing="false" onAction="#UpdateFunction" prefHeight="44.0" prefWidth="79.0" text="Update">
+            <Button layoutX="328.0" layoutY="398.0" mnemonicParsing="false" onAction="#UpdateFunction" prefHeight="44.0" prefWidth="79.0" text="Update">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="63.0" layoutY="398.0" mnemonicParsing="false" onAction="#RemoveFunction" prefHeight="44.0" prefWidth="79.0" text="Remove">
                <font>
                   <Font name="Cambria" size="14.0" />
                </font>
